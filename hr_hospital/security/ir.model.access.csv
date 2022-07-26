@@ -3,3 +3,13 @@ access.hospital.patient,access_hospital_patient,hr_hospital.model_hr_hospital_pa
 access.hospital.patient.card,access_hospital_patient_card,hr_hospital.model_hr_hospital_patient_card,base.group_user,1,1,1,1
 access.hospital.doctor,access_hospital_doctor,hr_hospital.model_hr_hospital_doctor,base.group_user,1,1,1,1
 access.hospital.diagnose,access_hospital_diagnose,hr_hospital.model_hr_hospital_diagnose,base.group_user,1,1,1,1
+access.hospital.person,access_hospital_person,hr_hospital.model_hr_hospital_person,base.group_user,1,1,1,1
+access.hospital.sickness,access_hospital_sickness,hr_hospital.model_hr_hospital_sickness,base.group_user,1,1,1,1
+access.hospital.sickness.category,access_hospital_sickness_category,hr_hospital.model_hr_hospital_sickness_category,base.group_user,1,1,1,1
+access.hospital.visit,access_hospital_visit,hr_hospital.model_hr_hospital_visit,base.group_user,1,1,1,1
+access.hospital.history.doctor,access_hospital_history_doctor,hr_hospital.model_hr_hospital_history_doctor,base.group_user,1,1,1,1
+access.hospital.research,access_hospital_research,hr_hospital.model_hr_hospital_research,base.group_user,1,1,1,1
+access.hospital.research.type,access_hospital_research_type,hr_hospital.model_hr_hospital_research_type,base.group_user,1,1,1,1
+access.hospital.sample,access_hospital_sample,hr_hospital.model_hr_hospital_sample,base.group_user,1,1,1,1
+access.hospital.sample.type,access_hospital_sample_type,hr_hospital.model_hr_hospital_sample_type,base.group_user,1,1,1,1
+access.appoint.doctor.wizard,access_appoint_doctor_wizard,model_appoint_doctor_wizard,base.group_user,1,1,1,1

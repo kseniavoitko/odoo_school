@@ -7,8 +7,36 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="name"/>
+                        <group>
+                            <field name="active"/>
+                            <field name="photo"/>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="gender"/>
+                            <field name="birthday"/>
+                            <field name="age"/>
+                            <field name="doctor_id"/>
+                        </group>
+                        <group string="Passport details">
+                            <field name="passport_id"/>
+                            <field name="passport_date"/>
+                            <field name="passport_authority"/>
+                        </group>
                     </group>
+                    <notebook>
+                        <page string="Visits">
+                            <field name="visit_ids"/>
+                        </page>
+                        <page string="History of personal doctor">
+                            <field name="history_doctor_ids">
+                                <tree>
+                                    <field name="date"/>
+                                    <field name="patient_id"/>
+                                    <field name="doctor_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -19,6 +47,7 @@
         <field name="model">hr_hospital.patient</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="active"/>
                 <field name="name"/>
             </tree>
         </field>

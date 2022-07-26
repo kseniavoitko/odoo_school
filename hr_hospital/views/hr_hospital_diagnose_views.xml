@@ -7,8 +7,29 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="name"/>
+                        <group>
+                            <field name="active"/>
+                            <field name="name"/>
+                            <field name="diagnose_date"/>
+                        </group>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="doctor_id"/>
+                            <field name="mentor_id"/>
+                            <field name="sickness_id"/>
+                        </group>
                     </group>
+                    <notebook>
+                        <page string="Therapy">
+                            <group>
+                                <field name="therapy"/>
+                                <field name="comment"/>
+                            </group>
+                        </page>
+                        <page string="Researches">
+                            <field name="research_ids"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -23,4 +44,15 @@
             </tree>
         </field>
     </record>
+
+    <record id="hr_hospital_diagnose_act_window" model="ir.actions.act_window">
+        <field name="name">Diagnoses</field>
+        <field name="res_model">hr_hospital.diagnose</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Diagnoses"
+              id="hr_hospital.diagnose"
+              parent="hr_hospital.menu_root"
+              action="hr_hospital_diagnose_act_window"/>
 </odoo>

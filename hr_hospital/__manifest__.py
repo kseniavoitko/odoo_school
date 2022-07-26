@@ -17,6 +17,10 @@
         'views/hr_hospital_doctor_views.xml',
         'views/hr_hospital_patient_card_views.xml',
         'views/hr_hospital_patient_views.xml',
+        'views/hr_hospital_sickness_category_views.xml',
+        'views/hr_hospital_research_type_views.xml',
+        'views/hr_hospital_sample_type_views.xml',
+        'wizard/appoint_doctor_wizard_views.xml',
     ],
 
 }
