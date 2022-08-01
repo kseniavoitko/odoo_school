@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_hospital_research_form" model="ir.ui.view">
+        <field name="name">hr_hospital.research.form</field>
+        <field name="model">hr_hospital.research</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="active"/>
+                            <field name="name"/>
+                            <field name="research_type_id"/>
+                        </group>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="doctor_id"/>
+                            <field name="sample_id"/>
+                        </group>
+                        <field name="conclusion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_hospital_research_tree" model="ir.ui.view">
+        <field name="name">hr_hospital.research.tree</field>
+        <field name="model">hr_hospital.research</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="patient_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_hospital_research_action" model="ir.actions.act_window">
+        <field name="name">Hospital Researches</field>
+        <field name="res_model">hr_hospital.research</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('patient_id','=', active_id)]</field>
+    </record>
+
+    <record id="hr_hospital_research_act_window" model="ir.actions.act_window">
+        <field name="name">Researches</field>
+        <field name="res_model">hr_hospital.research</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Researches"
+              id="hr_hospital.research"
+              parent="hr_hospital.menu_other"
+              action="hr_hospital_research_act_window"/>
+</odoo>

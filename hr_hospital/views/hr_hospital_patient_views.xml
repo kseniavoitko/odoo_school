@@ -5,7 +5,22 @@
         <field name="model">hr_hospital.patient</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="%(hr_hospital.hr_hospital_create_visit_from_patient_action)d"
+                            string="Create Visit" type="action"
+                            class="oe_stat_button"/>
+                </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(hr_hospital.hr_hospital_visit_action)d"
+                                string="Visits" type="action"
+                                class="oe_stat_button" icon="fa-eye"/>
+                        <button name="%(hr_hospital.hr_hospital_research_action)d"
+                                string="Researches" type="action"
+                                class="oe_stat_button" icon="fa-edit"/>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
                     <group>
                         <group>
                             <field name="active"/>
@@ -24,15 +39,23 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Visits">
+                        <!--<page string="Visits">
                             <field name="visit_ids"/>
-                        </page>
+                        </page>-->
                         <page string="History of personal doctor">
                             <field name="history_doctor_ids">
                                 <tree>
                                     <field name="date"/>
                                     <field name="patient_id"/>
                                     <field name="doctor_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="History of sickness">
+                            <field name="sickness_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="sickness_category_id"/>
                                 </tree>
                             </field>
                         </page>

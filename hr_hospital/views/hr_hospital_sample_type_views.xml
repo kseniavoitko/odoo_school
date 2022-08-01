@@ -42,6 +42,6 @@
 
     <menuitem name="Sample types"
               id="hr_hospital.sample_type"
-              parent="hr_hospital.menu_root"
+              parent="hr_hospital.menu_other"
               action="hr_hospital_sample_type_act_window"/>
 </odoo>

@@ -42,6 +42,6 @@
 
     <menuitem name="Sickness categories"
               id="hr_hospital.sickness_category"
-              parent="hr_hospital.menu_root"
+              parent="hr_hospital.menu_other"
               action="hr_hospital_sickness_category_act_window"/>
 </odoo>

@@ -17,6 +17,7 @@
                             <field name="doctor_id"/>
                             <field name="mentor_id"/>
                             <field name="sickness_id"/>
+                            <field name="sickness_category_id"/>
                         </group>
                     </group>
                     <notebook>
@@ -45,14 +46,40 @@
         </field>
     </record>
 
+    <record id="hr_hospital_diagnose_pivot" model="ir.ui.view">
+        <field name="name">hr_hospital.diagnose.pivot</field>
+        <field name="model">hr_hospital.diagnose</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="sickness_category_id" type="row"/>
+                <field name="sickness_id" type="row"/>
+                <field name="diagnose_date" interval="year" type="col"/>
+                <field name="diagnose_date" interval="month" type="col"/>
+                <field name="qty" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="hr_hospital_diagnose_graph" model="ir.ui.view">
+        <field name="name">hr_hospital.diagnose.graph</field>
+        <field name="model">hr_hospital.diagnose</field>
+        <field name="arch" type="xml">
+            <graph type="bar">
+                <field name="diagnose_date" interval="month"/>
+                <field name="sickness_category_id"/>
+                <field name="qty" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
     <record id="hr_hospital_diagnose_act_window" model="ir.actions.act_window">
         <field name="name">Diagnoses</field>
         <field name="res_model">hr_hospital.diagnose</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
     </record>
 
     <menuitem name="Diagnoses"
               id="hr_hospital.diagnose"
-              parent="hr_hospital.menu_root"
+              parent="hr_hospital.menu_other"
               action="hr_hospital_diagnose_act_window"/>
 </odoo>

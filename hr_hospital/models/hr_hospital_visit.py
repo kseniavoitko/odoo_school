@@ -6,6 +6,8 @@ class HrHospitalVisit(models.Model):
     _description = "Doctor's visit"
 
     name = fields.Char()
+    active = fields.Boolean(
+        default=True, )
     visit_date = fields.Datetime('Date')
     patient_id = fields.Many2one('hr_hospital.patient', string='Patient')
     doctor_id = fields.Many2one('hr_hospital.doctor', string='Doctor')

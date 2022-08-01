@@ -15,12 +15,14 @@ class HrHospitalPatient(models.Model):
     passport_id = fields.Char('Passport No', tracking=True)
     passport_date = fields.Date('Date of passport issue', tracking=True)
     passport_authority = fields.Char('Authority', tracking=True)
-    partner_id = fields.Many2one('res.partner', string='Contact')
-    doctor_id = fields.Many2one('hr_hospital.doctor', string='Personal Doctor')
-    visit_ids = fields.One2many('hr_hospital.visit',
+    partner_id = fields.Many2one(comodel_name='res.partner', string='Contact')
+    doctor_id = fields.Many2one(comodel_name='hr_hospital.doctor', string='Personal Doctor')
+    visit_ids = fields.One2many(comodel_name='hr_hospital.visit',
                                 inverse_name='patient_id')
-    history_doctor_ids = fields.One2many('hr_hospital.history.doctor',
+    history_doctor_ids = fields.One2many(comodel_name='hr_hospital.history.doctor',
                                          inverse_name='patient_id')
+    sickness_ids = fields.Many2many(comodel_name='hr_hospital.sickness')
+    sample_ids = fields.Many2many(comodel_name='hr_hospital.sample')
 
     @api.depends('birthday')
     def _compute_age(self):

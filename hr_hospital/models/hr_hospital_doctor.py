@@ -10,12 +10,12 @@ class HrHospitalDoctor(models.Model):
     active = fields.Boolean(
         default=True, )
     specialization = fields.Char(required=True)
-    visit_ids = fields.One2many('hr_hospital.visit',
+    visit_ids = fields.One2many(comodel_name='hr_hospital.visit',
                                 inverse_name='doctor_id')
     is_intern = fields.Boolean('is intern')
-    intern_id = fields.Many2one('hr_hospital.doctor',
-                                string='Intern',
-                                domain=[('is_intern', '=', True)])
-    mentor_id = fields.Many2one('hr_hospital.doctor',
+    intern_ids = fields.One2many(comodel_name='hr_hospital.doctor',
+                                 inverse_name='mentor_id',
+                                 domain=[('is_intern', '=', False)])
+    mentor_id = fields.Many2one(comodel_name='hr_hospital.doctor',
                                 string='Mentor',
                                 domain=[('is_intern', '=', False)])
