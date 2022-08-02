@@ -12,13 +12,8 @@
                             <field name="name"/>
                             <field name="specialization"/>
                             <field name="is_intern"/>
-                            <!--<field name="intern_ids" widget="one2many"
-                                   attrs="{'invisible': [('is_intern','=',True)]}"/>-->
-                            <field name="intern_ids" widget="one2many" nolabel="1">
-                                <tree editable="top">
-                                    <field name="name"/>
-                                </tree>
-                            </field>
+                            <field name="intern_ids" mode="kanban"
+                                   attrs="{'invisible': [('is_intern','=',True)]}"/>
                             <field name="mentor_id"
                                    attrs="{'invisible': [('is_intern','=',False)]}"/>
                         </group>

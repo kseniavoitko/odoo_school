@@ -15,7 +15,7 @@ class HrHospitalDoctor(models.Model):
     is_intern = fields.Boolean('is intern')
     intern_ids = fields.One2many(comodel_name='hr_hospital.doctor',
                                  inverse_name='mentor_id',
-                                 domain=[('is_intern', '=', False)])
+                                 domain=[('is_intern', '=', True)])
     mentor_id = fields.Many2one(comodel_name='hr_hospital.doctor',
                                 string='Mentor',
                                 domain=[('is_intern', '=', False)])
