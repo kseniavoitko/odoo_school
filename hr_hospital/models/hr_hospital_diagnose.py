@@ -23,6 +23,11 @@ class HrHospitalDiagnose(models.Model):
     comment = fields.Text()
     research_ids = fields.Many2many(comodel_name='hr_hospital.research')
     qty = fields.Integer(default=1, )
+    grade_of_sick = fields.Selection([
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3')
+    ], tracking=True, default='1')
 
     @api.onchange('doctor_id')
     def onchange_doctor_id(self):

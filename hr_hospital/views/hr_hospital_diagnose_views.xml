@@ -18,6 +18,7 @@
                             <field name="mentor_id"/>
                             <field name="sickness_id"/>
                             <field name="sickness_category_id"/>
+                            <field name="grade_of_sick"/>
                         </group>
                     </group>
                     <notebook>

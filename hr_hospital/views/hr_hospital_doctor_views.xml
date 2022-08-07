@@ -34,6 +34,9 @@
                                 </tree>
                             </field>
                         </page>
+                        <page string="Activity History">
+                            <field name="activity_history"/>
+                        </page>
                     </notebook>
                 </sheet>
             </form>
@@ -57,17 +60,61 @@
         <field name="model">hr_hospital.doctor</field>
         <field name="arch" type="xml">
             <kanban class="o_kanban_mobile" default_group_by="specialization">
+                <field name="name"/>
+                <field name="specialization"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click">
-                            <div>
-                                <strong>
-                                    <field name="name"/>
-                                </strong>
-                                <div class="text-right">
-                                    <button name="%(hr_hospital.hr_hospital_create_visit_from_doctor_action)d"
-                                            string="Create Visit"
-                                            type="action" class="btn fa fa-edit"/>
+                            <div class="o_kanban_card_header_title">
+                                <div>
+                                    <p>
+                                        <field name="name"/>
+                                    </p>
+                                    <p>
+                                        <field name="specialization"/>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="o_dropdown_kanban dropdown">
+                                <a class="dropdown-toggle btn"
+                                   data-toggle="dropdown" href="#">
+                                    <span class="fa fa-ellipsis-v"
+                                          aria-hidden="true"/>
+                                </a>
+                                <div class="o_kanban_card_manage_setting row mt16">
+                                    <div class="dropdown-menu" role="menu">
+                                        <t t-if="widget.editable">
+                                            <a role="menuitem" type="edit"
+                                               class="dropdown-item">Edit
+                                            </a>
+                                        </t>
+                                        <t t-if="widget.deletable">
+                                            <a role="menuitem"
+                                               type="delete"
+                                               class="dropdown-item">Delete
+                                            </a>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12" style="height: 15px;"/>
+
+                            <div class="container o_kanban_card_content">
+                                <div class="row">
+                                    <div class="col-6 o_kanban_primary_left">
+                                        <button class="btn btn-primary"
+                                                string="Create Visit"
+                                                name="%(hr_hospital.hr_hospital_create_visit_from_doctor_action)d"
+                                                type="action">
+                                            <span>Create Visit</span>
+                                        </button>
+                                    </div>
+                                    <div class="col-6 o_kanban_primary_right">
+                                        <field name="patient_ids"
+                                               widget="many2many_tags"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>

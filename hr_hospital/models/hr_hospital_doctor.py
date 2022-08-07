@@ -19,3 +19,6 @@ class HrHospitalDoctor(models.Model):
     mentor_id = fields.Many2one(comodel_name='hr_hospital.doctor',
                                 string='Mentor',
                                 domain=[('is_intern', '=', False)])
+    activity_history = fields.Text()
+    patient_ids = fields.One2many(comodel_name='hr_hospital.patient',
+                                  inverse_name='doctor_id')

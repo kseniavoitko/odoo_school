@@ -23,6 +23,8 @@
         'views/hr_hospital_sample_views.xml',
         'views/hr_hospital_sample_type_views.xml',
         'wizard/appoint_doctor_wizard_views.xml',
+        'report/hr_hospital_doctor_report.xml',
+        'report/hr_hospital_doctor_reports_templates.xml',
     ],
 
 }
